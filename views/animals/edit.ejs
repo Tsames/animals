@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs") %>
+
+  <body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+      <div>
+        <form action="/animals/<%= animal._id %>?_method=PUT" method="post">
+          <fieldset>
+            <legend>Edit a <%= animal.name %></legend>
+            <label>
+              NAME:<input
+                type="text"
+                name="name"
+                value="<%= animal.name %>"
+                placeholder="enter animal name"
+              />
+            </label>
+            <label>
+              COLOR:<input
+                type="text"
+                name="color"
+                value="<%= animal.color %>"
+                placeholder="enter animal name"
+              />
+            </label>
+            <label>
+              READY TO EAT:<input type="checkbox" name="readyToEat" <%=
+              animal.readyToEat ? "checked" : "" %> />
+            </label>
+          </fieldset>
+          <input type="submit" value="Update <%= animal.name %>" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
